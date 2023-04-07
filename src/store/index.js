@@ -1,75 +1,24 @@
 
 import { createStore } from 'vuex'
-
-// export default createStore({
-//   state: {
-//     username: 'zs'
-//   },
-//   getters: {
-//     newName(state){
-//       return state.username + '!!'
-//     }
-//   },
-//   mutations: {
-//     updateName(state){
-//       state.username = 'ls'
-//     }
-//   },
-//   actions: {
-//     updateName(ctx) {
-//       setTimeout(() => {
-//         ctx.commit('updateName')
-//       }, 1000);
-//     }
-//   },
-//   modules: {
-//   }
-// })
-
-const moduleA = {
-  state: {
-    username: 'moduleA'
-  },
-  getters: {
-    newName (state) {
-      return state.username + '11'
-    }
-  },
-  mutations: {
-    updateName (state) {
-      state.username = 'moduleAAAA'
-    }
-  }
-}
-
-// B模块
-const moduleB = {
-  namespaced: true,
-  state: {
-    username: 'moduleB'
-  },
-  getters: {
-    newName (state) {
-      return state.username + '11'
-    }
-  },
-  mutations: {
-    updateName (state) {
-      state.username = 'moduleBBBB'
-    }
-  },
-  actions: {
-    updateName (ctx) {
-      setTimeout(() => {
-        ctx.commit('updateName')
-      }, 1000)
-    }
-  }
-}
+import createPersistedState from 'vuex-persistedstate'
+import user from './modules/user'
+import cart from './modules/cart'
+import category from './modules/category'
 
 export default createStore({
   modules: {
-    moduleA,
-    moduleB
-  }
+    user,
+    cart,
+    category
+  },
+  // 配置插件
+  plugins: [
+    // 默认存储在localStorage
+    createPersistedState({
+      // 本地存储名字
+      key: 'erabbit-client-pc-124-store',
+      // 指定需要存储的模块
+      paths: ['user', 'cart']
+    })
+  ]
 })
