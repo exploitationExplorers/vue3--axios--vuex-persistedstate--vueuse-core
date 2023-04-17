@@ -1,7 +1,6 @@
 import { createRouter, createWebHashHistory } from 'vue-router'
 import TopCategory from '@/views/category'
 import SubCategory from '@/views/category/sub'
-import Test from '@/components/text/test.vue'
 const Layout = () => import('@/views/Layout')
 const Home = () => import('@/views/home/index')
 const routes = [
@@ -20,10 +19,6 @@ const routes = [
       }
 
     ]
-  },
-  {
-    path: '/test/', component: Test
-
   }
 
 ]

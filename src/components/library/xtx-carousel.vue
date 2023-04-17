@@ -50,7 +50,6 @@ export default {
   },
   setup (props) {
     const index = ref(0)
-    console.log(props.sliders)
     // 自动轮播的逻辑
     let timer = null
 

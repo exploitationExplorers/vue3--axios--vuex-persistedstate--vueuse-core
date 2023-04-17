@@ -16,3 +16,27 @@ export const findBrand = (limit = 6) => {
 export const findBanner = () => {
   return request('/home/banner', 'get')
 }
+
+export const findNew = () => {
+  return request('home/new', 'get')
+}
+
+export const findHot = () => {
+  return request('home/hot', 'get')
+}
+
+/**
+ * 获取商品板块
+ * @returns Promise
+ */
+export const findGoods = () => {
+  return request('/home/goods', 'get')
+}
+
+/**
+ * 获取最新专题
+ * @returns Promise
+ */
+export const findSpecial = () => {
+  return request('home/special', 'get')
+}

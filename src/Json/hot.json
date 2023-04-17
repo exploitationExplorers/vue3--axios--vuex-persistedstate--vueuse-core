@@ -1,0 +1,30 @@
+{
+    "code": "1",
+    "msg": "操作成功",
+    "result": [
+        {
+            "id": "1001",
+            "picture": "https://yjy-oss-files.oss-cn-zhangjiakou.aliyuncs.com/tuxian/popular_1.jpg",
+            "title": "特惠推荐",
+            "alt": "它们最实惠"
+        },
+        {
+            "id": "1002",
+            "picture": "https://yjy-oss-files.oss-cn-zhangjiakou.aliyuncs.com/tuxian/popular_2.jpg",
+            "title": "爆款推荐",
+            "alt": "它们最受欢迎"
+        },
+        {
+            "id": "1003",
+            "picture": "https://yjy-oss-files.oss-cn-zhangjiakou.aliyuncs.com/tuxian/popular_3.jpg",
+            "title": "一站买全",
+            "alt": "使用场景下精心优选"
+        },
+        {
+            "id": "1004",
+            "picture": "https://yjy-oss-files.oss-cn-zhangjiakou.aliyuncs.com/tuxian/popular_4.jpg",
+            "title": "领券中心",
+            "alt": "更多超值优惠券"
+        }
+    ]
+}
