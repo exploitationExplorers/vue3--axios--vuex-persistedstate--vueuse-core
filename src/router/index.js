@@ -5,6 +5,7 @@ import Test from '@/views/text/app-test.vue'
 const Layout = () => import('@/views/Layout')
 const Home = () => import('@/views/home/index')
 const Goods = () => import('@/views/goods/index')
+const Login = () => import('@/views/login/index.vue')
 const routes = [
   {
     path: '/',
@@ -24,6 +25,9 @@ const routes = [
       }
 
     ]
+  },
+  {
+    path: '/login', component: Login
   },
   {
     path: '/test', component: Test

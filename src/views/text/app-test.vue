@@ -8,12 +8,17 @@
     <a v-if="myCurrentPage>=pager.pageCount" href="javascript:;" class="disabled">下一页</a>
     <a v-else href="javascript:;">下一页</a>
   </div>
+  <div>
+    <Message text="手机号或密码错误" type="warn"  style="margin-top: 130px;"/>
+  </div>
 </template>
 <script>
 
 import { computed, ref } from 'vue'
+import Message from '../../components/library/xtx-message.vue'
 export default {
   name: 'XtxPagination',
+  components: { Message },
   props: {
     total: {
       type: Number,
