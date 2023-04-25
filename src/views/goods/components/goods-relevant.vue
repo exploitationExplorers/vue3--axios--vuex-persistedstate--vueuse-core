@@ -24,7 +24,7 @@ const useRelGoodsData = (id) => {
     for (let i = 0; i < total; i++) {
       silders.value.push(data.result.slice(i * size, (i + 1) * size))
     }
-    console.log(silders.value)
+    // console.log(silders.value)
   })
   return silders
 }

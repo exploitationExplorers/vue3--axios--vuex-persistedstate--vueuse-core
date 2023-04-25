@@ -11,11 +11,15 @@
   <div>
     <Message text="手机号或密码错误" type="warn"  style="margin-top: 130px;"/>
   </div>
+  <div>
+
+  </div>
 </template>
 <script>
 
 import { computed, ref } from 'vue'
 import Message from '../../components/library/xtx-message.vue'
+
 export default {
   name: 'XtxPagination',
   components: { Message },

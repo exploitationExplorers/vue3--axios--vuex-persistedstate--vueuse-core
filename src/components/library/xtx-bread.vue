@@ -16,7 +16,7 @@ export default {
     // 5. 把动态创建的节点渲染再xtx-bread标签中
 
     const items = this.$slots.default()
-    console.log(items)
+    // console.log(items)
 
     const dymanicItems = []
     items.forEach((item, i) => {
@@ -26,7 +26,7 @@ export default {
         // console.log(item.type.name);
         if (i < (items.length - 1)) {
           dymanicItems.push(h('i', { class: 'iconfont icon-angle-right' }))
-          console.log(dymanicItems, '123')
+          // console.log(dymanicItems, '123')
         }
       }
     })

@@ -90,7 +90,7 @@ const updateDisabledStatus = (specs, pathMap) => {
       // 5. 拿着key去路径字典中查找是否有数据，有可以点击，没有就禁用（true）
       val.disabled = !pathMap[key]
     })
-    console.log(item)
+    // console.log(item)
   })
 }
 
@@ -115,10 +115,10 @@ export default {
     }
   },
   setup (props, { emit }) {
-    console.log(props.goods)
+    // console.log(props.goods)
     const pathMap = getPathMap(props.goods.skus)
     // console.log(props.goods.skus);
-    console.log(pathMap)
+    // console.log(pathMap)
     // 根据skuId初始化选中
     if (props.skuId) {
       initDefaultSelected(props.goods, props.skuId)

@@ -8,24 +8,21 @@
         </template>
         <template v-else>
           <li><RouterLink to="/login">请先登录</RouterLink></li>
-        <li><a href="javascript:;">免费注册</a></li>
+          <li><a href="javascript:;">免费注册</a></li>
         </template>
         <li><a href="javascript:;">我的订单</a></li>
         <li><a href="javascript:;">会员中心</a></li>
         <li><a href="javascript:;">帮助中心</a></li>
         <li><a href="javascript:;">关于我们</a></li>
-        <li>
-          <a href="javascript:;"><i class="iconfont icon-phone"></i>手机版</a>
-        </li>
+        <li><a href="javascript:;"><i class="iconfont icon-phone"></i>手机版</a></li>
       </ul>
     </div>
   </nav>
 </template>
-
 <script>
-import { computed, useRouter } from 'vue'
-
+import { computed } from 'vue'
 import { useStore } from 'vuex'
+import { useRouter } from 'vue-router'
 export default {
   name: 'AppTopnav',
   setup () {
@@ -44,14 +41,14 @@ export default {
       store.commit('user/setUser', {})
       // 清空购物车
       store.commit('cart/setCart', [])
+
       router.push('/login')
     }
     return { profile, logout }
   }
 }
 </script>
-
-<style lang="less">
+<style scoped lang="less">
 .app-topnav {
   background: #333;
   ul {
