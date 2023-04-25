@@ -93,6 +93,7 @@ export default {
             })
             .then((data) => {
               ctx.commit('setCart', data.result)
+              resolve()
             })
         } else {
           ctx.commit('insertCart', goods)
@@ -106,7 +107,7 @@ export default {
       return new Promise((resolve, reject) => {
         if (ctx.rootState.user.profile.token) {
           // 已登录
-          findCart().then((data) => {
+          findCart().then(data => {
             ctx.commit('setCart', data.result)
             resolve()
           })
@@ -140,10 +141,11 @@ export default {
         if (ctx.rootState.user.profile.token) {
           deleteCart([skuId])
             .then(() => {
-              findCart()
+              return findCart()
             })
-            .then((data) => {
+            .then(data => {
               ctx.commit('setCart', data.result)
+              resolve()
             })
         } else {
           ctx.commit('deleteCart', skuId)
@@ -161,7 +163,7 @@ export default {
             .then(() => {
               return findCart()
             })
-            .then((data) => {
+            .then(data => {
               ctx.commit('setCart', data.result)
               resolve()
             })
@@ -176,18 +178,20 @@ export default {
     checkAllCart (ctx, selected) {
       return new Promise((resolve, reject) => {
         if (ctx.rootState.user.profile.token) {
-          const ids = ctx.getters.validList.map((item) => item.id)
+          const ids = ctx.getters.validList.map(item => item.skuId)
           checkAllCart({ selected, ids })
             .then(() => {
               return findCart()
             })
             .then((data) => {
               ctx.commit('setCart', data.result)
+              resolve()
             })
         } else {
           ctx.getters.validList.forEach((goods) => {
             ctx.commit('updateCart', { skuId: goods.skuId, selected })
           })
+          resolve()
         }
       })
     },
@@ -224,6 +228,11 @@ export default {
     updateCartSku (ctx, { oldSkuId, newSku }) {
       return new Promise((resolve, reject) => {
         if (ctx.rootState.user.profile.token) {
+          // 已登录
+          // 1. 找出旧的商品信息
+          // 2. 删除旧商品数据
+          // 3. 原先商品的数量+新skuId
+          // 4. 添加新的商品
           const oldGoods = ctx.state.list.find((item) => item.id === oldSkuId)
           deleteCart([oldGoods.skuId])
             .then(() => {
@@ -234,6 +243,7 @@ export default {
             })
             .then((data) => {
               ctx.commit('setCart', data.result)
+              resolve()
             })
         } else {
           const oldGoods = ctx.state.list.find(
